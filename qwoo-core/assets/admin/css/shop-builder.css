@@ -1,0 +1,301 @@
+/* Layout Container */
+.shop-builder-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    margin-top: 20px;
+    min-height: 80vh;
+}
+
+/* Sidebar (30%) */
+.shop-builder-sidebar {
+    width: 30%;
+    min-width: 350px;
+    padding: 20px;
+    border-right: 1px solid #ccd0d4;
+    box-sizing: border-box;
+    position: relative; /* Necessary for the relative dropdown */
+}
+
+/* Preview (70%) */
+.shop-builder-preview {
+    width: 70%;
+    flex-grow: 1;
+    background: #f0f0f1;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-builder-preview iframe {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.preview-header {
+    padding: 10px 15px;
+    background: #23282d;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tabs UI */
+.tab-content { display: none; padding-top: 20px; }
+.tab-content.active { display: block; }
+.nav-tab { cursor: pointer; }
+
+/* Field Grouping */
+.field-group { margin-bottom: 30px; }
+.field-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+
+/* HIDE ORIGINAL SELECT */
+#hp-product-select {
+    display: none !important;
+}
+
+/* SELECT2 CORE OVERRIDES */
+.shop-builder-sidebar .custom-select-wrapper {
+    position: relative;
+}
+
+.shop-builder-sidebar .custom-select-wrapper> span.select2-container.select2-container--default .select2-dropdown {
+    background: #fff;
+    box-shadow: 0 0 10px #00000055;
+    padding: 0px;
+    width: 100%;
+    border-radius: 4px;
+    top: 0px;
+    left: 0;
+}
+
+.shop-builder-sidebar .custom-select-wrapper > span.select2-container.select2-container--default ul li.select2-results__option {
+    padding: 10px;
+}
+
+.shop-builder-sidebar .custom-select-wrapper > span.select2-container.select2-container--default ul li.select2-results__option:last-child {
+    margin: 0;
+}
+
+.shop-builder-sidebar .custom-select-wrapper > span.select2-container.select2-container--default ul {
+    margin: 0;
+}
+
+li.select2-results__option.select2-results__option--highlighted {
+    background: #e9e9e9;
+}
+li.select2-results__option[aria-selected="true"] {
+    background: greenyellow;
+}
+
+/* Force Flexbox on the selection area to control order */
+.select2-selection--multiple .select2-selection__rendered {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    column-gap: 3px;
+}
+
+/* 1. Force Search Input to the TOP */
+.select2-search--inline {
+    order: -1;
+    display: block;
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.select2-search__field {
+    min-width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+}
+
+/* 2. Selected Products (Full width list style) */
+span.select2-selection__clear {
+    width: 100%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    background: #e9e9e9;
+    padding: 0 5px 3px;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+span.select2-selection__clear {
+    background: #e9e9e955;
+}
+span.select2-selection__clear:after {
+    content: 'Clear all';
+    font-size: 15px;
+    display: inline-flex;
+    margin-left: 5px;
+}
+
+.select2-selection__choice {
+    background-color: #2271b1;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 20px 8px 10px;
+    margin: 4px 0;
+    width: fit-content;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.select2-selection__choice__remove {
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - 10px);
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-size: 20px;
+    align-items: center;
+    transition: 0.3s ease;
+    padding: 0 5px;
+}
+
+span.select2-selection__choice__remove:hover {
+    background: #e9e9e955;
+}
+
+/* DROPDOWN LOCALIZATION */
+/* This ensures the search results stay inside the sidebar width */
+.select2-dropdown {
+    z-index: 9999;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: none;
+    min-height: 40px;
+}
+
+/* Fix: Keep dropdown pinned to the top search area */
+.shop-builder-sidebar .select2-container--open .select2-dropdown {
+    position: absolute;
+}
+
+/* Ensure the container doesn't shift the relative anchor */
+.shop-builder-sidebar .select2-container {
+    top: 50px !important;
+    left: 0 !important;
+}
+
+/* Append this to assets/admin/css/shop-builder.css (or enqueue as a second stylesheet) */
+
+.add-section-control {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#sections-container {
+    margin-top: 15px;
+}
+
+.section-row {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.section-row-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f6f7f7;
+    border-bottom: 1px solid #dcdcde;
+    border-radius: 4px 4px 0 0;
+}
+
+.section-drag-handle {
+    cursor: move;
+    color: #787c82;
+}
+
+.section-title {
+    flex: 1;
+}
+
+.section-enabled-toggle {
+    font-weight: normal;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.section-row-body {
+    padding: 14px;
+}
+
+.section-row-placeholder {
+    border: 2px dashed #b4b9be;
+    background: #f0f0f1;
+    height: 50px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+.testimonial-item {
+    background: #fafafa;
+}
+
+.testimonial-item textarea {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+}
+
+/* -------------------------
+   Collapsible sections (round 2)
+   ------------------------- */
+
+/* Toggle button sits between the drag handle and the title. Reset it back
+   to a plain icon button — WP's .button-link class already strips most
+   default button chrome, this just tightens spacing/alignment. */
+.section-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #787c82;
+    line-height: 1;
+}
+
+.section-toggle-btn:hover,
+.section-toggle-btn:focus {
+    color: #2271b1;
+}
+
+.section-toggle-btn .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* When collapsed, the header keeps its bottom border/radius since the body
+   is hidden rather than removed (so dashicons-arrow-down-alt2 shows and
+   .section-row-body is display:none via jQuery slideUp). */
+.section-row.section-collapsed .section-row-header {
+    border-bottom: none;
+    border-radius: 4px;
+}
